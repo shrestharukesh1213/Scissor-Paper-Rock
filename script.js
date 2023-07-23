@@ -1,19 +1,17 @@
 let choices = ["Scissor", "Paper", "Rock"];
-let playerWins = 0,
-  computerWins = 0;
 const button = document.querySelectorAll("button");
 function selectedChoice() {
   button.forEach((choice) => {
-    choice.addEventListener("click", () => choice.textContent.toLowerCase());
+    choice.addEventListener("click", () => {
+      playRound(choice.textContent.toLowerCase(), computerSelection);
+    });
   });
 }
-const playerSelection = selectedChoice();
-const computerSelection = computerChoices();
-
 function computerChoices() {
   return choices[Math.floor(Math.random() * choices.length)];
 }
-
+const playerSelection = selectedChoice();
+const computerSelection = computerChoices();
 function playRound(playerSelection, computerSelection) {
   if (playerSelection == "rock" && computerSelection == "Rock") {
     console.log("It's a draw");
@@ -23,25 +21,25 @@ function playRound(playerSelection, computerSelection) {
     console.log("It's a draw");
   } else if (playerSelection == "paper" && computerSelection == "Rock") {
     console.log("Player won");
-    return 1;
+    // return 1;
   } else if (playerSelection == "paper" && computerSelection == "Scissor") {
     console.log("Computer Won");
-    return 0;
+    // return 0;
   } else if (playerSelection == "scissor" && computerSelection == "Paper") {
     console.log("Player won");
-    return 1;
+    // return 1;
   } else if (playerSelection == "scissor" && computerSelection == "Rock") {
     console.log("Computer won");
-    return 0;
+    // return 0;
   } else if (playerSelection == "rock" && computerSelection == "Scissor") {
     console.log("Player won");
-    return 1;
+    // return 1;
   } else if (playerSelection == "rock" && computerSelection == "Paper") {
     console.log("Computer won");
-    return 0;
+    // return 0;
   }
 }
-playRound(playerSelection, computerSelection);
+// playRound(playerSelection, computerSelection);
 // function game() {
 // for (i = 0; i < 5; i++) {
 // let val = playRound(playerSelection, computerSelection);
@@ -60,6 +58,3 @@ playRound(playerSelection, computerSelection);
 // }
 // }
 // game();
-// function selectedChoice() {
-//   return scissorButton.addEventListener("click", () => "paper");
-// }
